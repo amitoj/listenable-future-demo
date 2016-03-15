@@ -28,10 +28,10 @@ public class ListenableFutureAsyncController {
     @ResponseBody
     DeferredResult<String> home() {
         // Create DeferredResult with timeout 5s
-        final DeferredResult<String> result = new DeferredResult<>(5000);
+        final DeferredResult<String> result = new DeferredResult<>(5000L);
 
         // Let's call the backend
-        ListenableFuture<ResponseEntity<String>> future = restTemplate.getForEntity("http://www.google.com", String.class);
+        ListenableFuture<ResponseEntity<String>> future = restTemplate.getForEntity("http://www.pageone.co.uk", String.class);
         future.addCallback(new ListenableFutureCallback<ResponseEntity<String>>() {
             @Override
             public void onSuccess(ResponseEntity<String> response) {
